@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstfree.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksalmi <ksalmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 14:25:51 by ksalmi            #+#    #+#             */
-/*   Updated: 2019/11/20 17:12:30 by ksalmi           ###   ########.fr       */
+/*   Created: 2019/12/13 14:25:03 by ksalmi            #+#    #+#             */
+/*   Updated: 2019/12/13 14:29:09 by ksalmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+void	ft_lstfree(t_list *head)
 {
-	t_list *ptr;
-	t_list *new;
+	t_list *tmp;
 
-	if (!(lst))
-		return (NULL);
-	if (!(ptr = f(lst)))
-		return (NULL);
-	new = ptr;
-	while (lst->next)
+	if (head)
 	{
-		lst = lst->next;
-		if (!(ptr->next = f(lst)))
-			return (NULL);
-		ptr = ptr->next;
+		while (head)
+		{
+			tmp = head;
+			head = head->next;
+			free(head);
+		}
 	}
-	return (new);
 }

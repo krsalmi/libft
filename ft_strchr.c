@@ -6,7 +6,7 @@
 /*   By: ksalmi <ksalmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 14:12:02 by ksalmi            #+#    #+#             */
-/*   Updated: 2019/10/25 14:18:03 by ksalmi           ###   ########.fr       */
+/*   Updated: 2019/11/18 15:54:06 by ksalmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strchr(const char *s, int c)
 	char *ret;
 
 	ret = NULL;
+	if (!s)
+		return (NULL);
 	while (*s && *s != c)
 		s++;
 	if (*s == c)
