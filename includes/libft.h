@@ -6,7 +6,7 @@
 /*   By: ksalmi <ksalmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 15:47:18 by ksalmi            #+#    #+#             */
-/*   Updated: 2019/12/13 14:28:01 by ksalmi           ###   ########.fr       */
+/*   Updated: 2019/11/07 14:36:17 by ksalmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,4 @@ int					ft_isuppercase(char c);
 int					ft_islowercase(char c);
 void				ft_swap(void *a, void *b);
 void				ft_lstadd_back(t_list **alst, t_list *new);
-void				ft_lstfree(t_list *head);
 #endif

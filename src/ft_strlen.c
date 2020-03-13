@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksalmi <ksalmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 14:25:51 by ksalmi            #+#    #+#             */
-/*   Updated: 2019/11/20 17:12:30 by ksalmi           ###   ########.fr       */
+/*   Created: 2019/10/15 12:37:25 by ksalmi            #+#    #+#             */
+/*   Updated: 2019/11/04 15:46:54 by ksalmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+size_t	ft_strlen(const char *str)
 {
-	t_list *ptr;
-	t_list *new;
+	size_t	i;
 
-	if (!(lst))
-		return (NULL);
-	if (!(ptr = f(lst)))
-		return (NULL);
-	new = ptr;
-	while (lst->next)
-	{
-		lst = lst->next;
-		if (!(ptr->next = f(lst)))
-			return (NULL);
-		ptr = ptr->next;
-	}
-	return (new);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
