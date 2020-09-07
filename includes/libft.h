@@ -88,4 +88,6 @@ int					ft_isuppercase(char c);
 int					ft_islowercase(char c);
 void				ft_swap(void *a, void *b);
 void				ft_lstadd_back(t_list **alst, t_list *new);
+int					ft_count_digits(long long num);
+void				ft_strswap(char **aa, char **bb);
 #endif
