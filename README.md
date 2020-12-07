@@ -7,6 +7,3 @@ To try out the functions, include "libft.h" in the headers of your .c file and c
 ```
 gcc <yourfile.c> -L relative/path/to/my_libft_repo -lft -I relative/path/to/libft/includes
 ```
-
-## Testing
-I coded some not-at-all fancy test files for testing the libft library, which can be found in my repo [a relative link](other_file.md).
