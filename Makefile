@@ -6,7 +6,7 @@
 #    By: ksalmi <ksalmi@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/29 15:00:26 by ksalmi            #+#    #+#              #
-#    Updated: 2019/12/09 14:39:42 by ksalmi           ###   ########.fr        #
+#    Updated: 2020/12/07 20:44:35 by ksalmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,11 @@ ft_lstmap.c \
 
 SRCS = $(addprefix src/,$(SRC_NAME))
 
-OBJECTS = $(subst .c,.o,$(SRC_NAME))
+OBJ_DIR = obj/
+
+OBJ = $(subst .c,.o,$(SRC_NAME))
+
+OBJECTS = $(addprefix $(OBJ_DIR), $(OBJ))
 
 INCLUDES = includes/
 
@@ -92,14 +96,21 @@ FLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME):
-	gcc -c $(FLAGS)  $(SRCS) -I $(INCLUDES)
-	ar rc $(NAME) $(OBJECTS)
-	ranlib $(NAME)
+	@echo "\033[31mCompiling\033[0m $(NAME)\033[31m...\033[0m"
+	@gcc -c $(FLAGS)  $(SRCS) -I $(INCLUDES)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
+	@mkdir -p $(OBJ_DIR)
+	@mv -f $(OBJ) $(OBJ_DIR)
+	@echo "\033[32mCompiled!\033[0m"
 
 clean:
-	/bin/rm -f $(OBJECTS)
+	@echo "\033[31mRemoving object files\033[0m"
+	@/bin/rm -f $(OBJECTS)
+	@/bin/rm -rf $(OBJ_DIR)
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	@echo "\033[31mRemoving\033[0m $(NAME)"
+	@/bin/rm -f $(NAME)
 
 re: fclean all
